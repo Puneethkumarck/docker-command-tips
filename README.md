@@ -16,7 +16,7 @@ Run docker container
 
 ```
 docker container run cassandra:latest
-===> cassandra:latest here cassandra is the image name available in docker hub registry and latest refers to version of the        cassandra image .
+===> cassandra:latest here refers to cassandra is the image name available in docker hub registry and latest refers to version of the        cassandra image .
 
 docker container run -it cassandra:latest
 ===>  start the container interactive mode (-it refers to interactive)
@@ -56,5 +56,10 @@ docker container logs my_assandra
 docker container run -d --name my_cassandra -p 9042:9042 cassandra:latest 
 ===> -p 9042:9042 which makes cassandra accessible in 9042 in localhost
 
+docker container run -d -name my_cassnadra -p 9042:9042 -v /temp/logs:bin/logs cassandra:latest
+===> here -v option to mount the volume from cassandra container to local disk
 
 ```
+
+docker images
+=============
