@@ -63,9 +63,11 @@ docker container run -d -name my_cassnadra -p 9042:9042 -v /temp/logs:bin/logs c
 
 docker images
 =============
+```
 FROM -> its used to refer base image .
 CMD -> cmd which needs to be executed in dockerimage
 docker image --help
 docker image build -t <imagename> . --> to build docker image .(dot) refers context current directory.
-docker history <image_name> --> to check history of the docker image       
+docker history <image_name> --> to check history of the docker image     
+```
 
