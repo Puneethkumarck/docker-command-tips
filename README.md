@@ -68,6 +68,15 @@ FROM -> its used to refer base image .
 CMD -> cmd which needs to be executed in dockerimage
 docker image --help
 docker image build -t <imagename> . --> to build docker image .(dot) refers context current directory.
-docker history <image_name> --> to check history of the docker image     
+docker history <image_name> --> to check history of the docker image   
 ```
 
+docker image instruction command
+================================
+```
+COPY --> Copy new files / directories in to container file system.
+ADD --> Allows tar file auto extraction in image ADD app.tar.gz  /opt/var/myapp .
+   Can download files from remote url
+```   
+
+```
