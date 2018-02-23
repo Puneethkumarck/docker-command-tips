@@ -75,8 +75,91 @@ docker image instruction command
 ================================
 ```
 COPY --> Copy new files / directories in to container file system.
+
 ADD --> Allows tar file auto extraction in image ADD app.tar.gz  /opt/var/myapp .
    Can download files from remote url
-```   
+
+RUN : used for installing software package
+     ex: RUN apt-get update && apt-get install -y git
+         RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#007 -silent
+
+CMD : defaults for executing container;can be overriden from CLI
+      CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0" , "-bmanagement" , "0.0.0.0"]
+      docker run wildfly bash
+      
+ENTRYPOINT : configures the container executable;can be overriden using --entrypoint from CLI
+              Default value : /bin/sh -c
+              
+EXPOSE : network ports on which the container is listening
+
+VOLUME :creates a mount point with the specified name
+
+USER : sets the user name or UID to use when running the image
+
+HEALTH CHECK : performs a healthcheck on the application inside the container
+
+HEALTHCHECK --interval=5s --timeout=3s CMD curl --fail http://localhost:8091/pools || exit 1
+
+******************
+Sample docker image:   
+FROM openjdk:jdk-alpine
+COPY helloworldApp/target/helloworldApp.jar /deployments/
+CMD java -jar /deployments/helloworldApp.jar
+*******************
+
+```
+
+TAG Image
+=========
+```
+If u build the image without specifying the tag it will be defaultly tagged as latest
+docker image build .
+
+Below command builds image with tagged as 1
+docker image build -t myapp:1
+
+Below command specify the build image with tagged as 1
+docker image build -t myapp:latest
+
+assiging the image to latest
+docker image tag myapp:1 myapp:latest
+
+docker run container myapp
+
+pushing image to docker hub:
+docker image tag myapp:1 puneethkumarck/myapp:latest
+docker login
+username:***************
+password:***************
+
+docker push puneethkumarck/myapp:latest
+
+Local registry:
+docker run -d -p 5000:5000 --restart always --name registry registry:2.6.0
+docker image tag myapp:1 localhost:5000/puneethkumarck/myapp:latest
+docker image push localhost:5000/puneethkumarck/myapp:latest
+
+```
+
+Docker Compose
+==============
+
+ - define and run multi container applications
+ - configuration defined in one or more files
+    - docker-compose.yaml (default file name)
+    - docker-compose.override.yml (default)
+    - multiple files specified using -f option
+- single command to up and running/destroy all the application containers 
+    - docker compose up
+    - docker compose down
+
+Usefull commands
+================
+```
+Remove all the images from docker host using single line command instruction
+docker image rm -f $(docker image ls -aq)
+
+Remove all the container running in docker host using single command line instruction
+docker container rm -f $(docker container ls -aq)
 
 ```
