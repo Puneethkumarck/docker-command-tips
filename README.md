@@ -152,6 +152,84 @@ Docker Compose
 - single command to up and running/destroy all the application containers 
     - docker compose up
     - docker compose down
+    
+- docker-compose commands
+
+```
+build              Build or rebuild services
+  bundle             Generate a Docker bundle from the Compose file
+  config             Validate and view the Compose file
+  create             Create services
+  down               Stop and remove containers, networks, images, and volumes
+  events             Receive real time events from containers
+  exec               Execute a command in a running container
+  help               Get help on a command
+  images             List images
+  kill               Kill containers
+  logs               View output from containers
+  pause              Pause services
+  port               Print the public port for a port binding
+  ps                 List containers
+  pull               Pull service images
+  push               Push service images
+  restart            Restart services
+  rm                 Remove stopped containers
+  run                Run a one-off command
+  scale              Set number of containers for a service
+  start              Start services
+  stop               Stop services
+  top                Display the running processes
+  unpause            Unpause services
+  up                 Create and start containers
+  version            Show the Docker-Compose version information
+```
+
+- docker compose up options
+
+```
+-d                         Detached mode: Run containers in the background,
+                               print new container names. Incompatible with
+                               --abort-on-container-exit and --timeout.
+    --no-color                 Produce monochrome output.
+    --no-deps                  Don't start linked services.
+    --force-recreate           Recreate containers even if their configuration
+                               and image haven't changed.
+                               Incompatible with --no-recreate.
+    --no-recreate              If containers already exist, don't recreate them.
+                               Incompatible with --force-recreate.
+    --no-build                 Don't build an image, even if it's missing.
+    --no-start                 Don't start the services after creating them.
+    --build                    Build images before starting containers.
+    --abort-on-container-exit  Stops all containers if any container was stopped.
+                               Incompatible with -d.
+    -t, --timeout TIMEOUT      Use this timeout in seconds for container shutdown
+                               when attached or when containers are already.
+                               Incompatible with -d.
+                               running. (default: 10)
+    --remove-orphans           Remove containers for services not
+                               defined in the Compose file
+    --exit-code-from SERVICE   Return the exit code of the selected service container.
+                               Implies --abort-on-container-exit.
+    --scale SERVICE=NUM        Scale SERVICE to NUM instances. Overrides the `scale`
+                               setting in the Compose file if present.
+
+```
+
+- docker compose down options
+
+```
+      --rmi type              Remove images. Type must be one of:
+                              'all': Remove all images used by any service.
+                              'local': Remove only images that don't have a
+                              custom tag set by the `image` field.
+    -v, --volumes           Remove named volumes declared in the `volumes`
+                            section of the Compose file and anonymous volumes
+                            attached to containers.
+    --remove-orphans        Remove containers for services not defined in the
+                            Compose file
+    -t, --timeout TIMEOUT   Specify a shutdown timeout in seconds.
+
+```
 
 Usefull commands
 ================
