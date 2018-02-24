@@ -231,8 +231,99 @@ build              Build or rebuild services
 
 ```
 
+- Sample docker compose file yaml file
+
+```
+version '1'
+
+configserver:
+  image: puneethkumarck/config-server
+  ports:
+    - "8000:8000"
+  depends_on:
+    - discovery
+    
+discovery:
+  image: puneethkumarck/eureka-server
+  ports:
+    - "8761:8761"
+
+
+```
+
+- docker compose logs command
+
+```
+docker-compose logs -f
+
+```
+
+- docker compose option
+
+```
+- multiple projects using - p
+
+ create multiple isolated environments on a host
+ naming convention for naming docker container
+ directoryname_servicename_servicenumber
+ 
+- default overrride
+  docker-compose.override.yml
+  
+content of docker-compose.override.yml
+discovery:
+  image: puneethkumarck/eureka-server
+  ports:
+    - "8080:8761"
+    
+  host port-> 8080
+  contanier port -> 8761
+```
+
+- docker compose Extends 
+
+```
+configuration.yml
+
+version '2'
+services:
+  config:
+    environment:
+      AWS_ACCESS_KEY: XXXX
+      AWS_SECRET_KEY: XXXX
+      
+      
+docker-compose.yml
+
+version: '2'
+services:
+  web:
+   extends:
+      file: configuration.yml
+      service: config
+   image: jboss/wildfly
+   volumes:
+     - ~/deployments:/opt/jboss/wildfly/standalone/deployments
+   ports:
+      - 8080:8080
+      
+docker-compose --verbose up -d 
+```
+
+- Docker compose : Common usecase 
+
+| Use case   | Command     |
+| ------------- |:-------------| 
+| Dev setup     | docker-compose up| 
+| local/remote host  | DOCKER_HOST , DOCKER_TLS_VERIFY ,DOCKER_CERT_PATH    |   
+| single/multiple host| integrated with swarm     |     
+| Multiple isolated environments | docker-compose up -p <project> |
+| Automated test setup | docker-compose up , mvn test , docker-compose down |
+| Dev/prod impedance mismatch | docker-compose up -f docker-compose.yml -f production.yml |
+
 Usefull commands
 ================
+
 ```
 Remove all the images from docker host using single line command instruction
 docker image rm -f $(docker image ls -aq)
