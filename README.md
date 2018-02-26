@@ -118,7 +118,7 @@ docker image build .
 Below command builds image with tagged as 1
 docker image build -t myapp:1
 
-Below command specify the build image with tagged as 1
+Below command builds image with tagged as latest
 docker image build -t myapp:latest
 
 assiging the image to latest
