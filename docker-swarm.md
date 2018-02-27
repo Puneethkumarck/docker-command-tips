@@ -64,3 +64,11 @@ Docker-Clustering using Docker-swarm
  ```
  
  
+Multinode Swarm Node Cluster
+============================
+
+- docker swarm mode initiliz --> docker swarm init --listen-addr <ip>  (other manager / worker node will join --listenaddr)
+- worker machine joining manager --> docker swarm join --token <worker_token> <manager> 
+- secondary manager join cluster--> docker swarm join --manger --token <manager_token> --listen-addr <master2> <master1>
+  
+    
