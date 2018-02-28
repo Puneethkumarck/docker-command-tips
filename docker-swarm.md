@@ -17,7 +17,7 @@ Docker-Clustering using Docker-swarm
    - rolling updates.
    
  - Swarm Mode:Protocols
-   - Swarm Manager (Raft Consensus Group) manages  >>>>>>>>>> Swarm Worker nothing but containers
+   - Swarm Manager (Raft Consensus Group) manages  >>>> Swarm Worker nothing but containers
      
  - secure By default
    - Manager node composed with (TLS & CA) <-> Manager node (TLS &CA) <-> Manager node (TLS & CA)
