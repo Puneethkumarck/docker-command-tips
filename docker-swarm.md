@@ -73,3 +73,23 @@ Multinode Swarm Node Cluster
   
 Deploy Services to Swarm Node
 =============================
+
+
+Create multi-node Swarm mode cluster on AWS/Azure
+================================================
+```
+    Go to docker.com/getdocker
+
+    Launch the template and explain the creation and parameters
+
+    SSH into instance: ssh -i ~/.ssh/puneeth-docker.pem docker@<master-ip>
+
+    Show more details: docker info
+
+    Show node listing: docker node ls
+
+    Setup SSH tunnel: ssh -i ~/.ssh/puneeth-docker.pem -NL localhost:2374:/var/run/docker.sock docker@<master-ip>
+
+    Show cluster information: docker -H localhost:2374 info
+
+```
