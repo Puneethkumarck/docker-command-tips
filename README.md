@@ -321,7 +321,7 @@ docker-compose --verbose up -d
 | Automated test setup | docker-compose up , mvn test , docker-compose down |
 | Dev/prod impedance mismatch | docker-compose up -f docker-compose.yml -f production.yml |
 
-Usefull commands
+Useful commands
 ================
 
 ```
