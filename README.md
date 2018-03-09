@@ -310,7 +310,7 @@ services:
 docker-compose --verbose up -d 
 ```
 
-- Docker compose : Common usecase 
+- Docker compose Commands
 
 | Use case   | Command     |
 | ------------- |:-------------| 
