@@ -65,7 +65,7 @@ docker images
 =============
 ```
 FROM -> its used to refer base image .
-CMD -> cmd which needs to be executed in dockerimage
+CMD -> cmd which needs to be executed in dockerimage.
 docker image --help
 docker image build -t <imagename> . --> to build docker image .(dot) refers context current directory.
 docker history <image_name> --> to check history of the docker image   
