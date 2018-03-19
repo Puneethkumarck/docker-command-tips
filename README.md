@@ -332,3 +332,7 @@ Remove all the container running in docker host using single command line instru
 docker container rm -f $(docker container ls -aq)
 
 ```
+
+References
+==========
+-  https://www.lynda.com/Docker-tutorials/Docker-Java-developers/576584-2.html
